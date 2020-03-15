@@ -1,2 +1,0 @@
-# InformaticaEsercizi
-Created with CodeSandbox
