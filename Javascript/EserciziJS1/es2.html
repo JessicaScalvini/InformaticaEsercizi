@@ -1,0 +1,41 @@
+<!-- input nome di persona e convertirlo in iniziali -->
+<html>
+  <head>
+<script>
+  const inputString=prompt("inserisci nome e cognome");
+  const spacePosition= inputString.indexOf(' ');
+/*
+lunghezza =>3
+deve contenere 1 spazio solo
+Non deve ne iniziare ne finire con spazio
+*/
+  if(inputString.length<3 || 
+  spacePosition<=0 || 
+  spacePosition==inputString.length -1 || 
+  inputString.indexOf(' ',spacePosition+1)>0){
+    alert('input non valido');
+  } else{
+      let initials=inputString.charAt(0) + inputString.charAt(spacePosition+1);
+      initials=initials.toUpperCase();
+      switch(inputString.toLowerCase()){
+        case "luke skywalker": {
+          alert('Ciao Luke!');
+          break;
+          }
+        case "obi-wan kenobi":{
+          alert('Ciao Master');
+          break;
+        }
+        case "anakin skywalker":{
+          alert('ciao padawan');
+          break;
+        }
+        default:{
+          alert(initials);
+        }
+      }
+  }
+
+  </Script>
+</head>
+</html>

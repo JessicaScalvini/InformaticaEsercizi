@@ -1,0 +1,25 @@
+<!-- prendere in input una stringa, invertire, e mostrare il risultato
+promt per input, alert per output, stampare la lunghezza della stringa in console -->
+<html>
+  <head>
+<script>
+var inputString= prompt('inserisci stringa'); 
+console.log('lunghezza della stringa' + inputString.length);
+if (inputString.length<=1){
+alert(inputString);
+} else{
+  let outputString=''; //lasciare vuoto per far vedere che è stringa
+var lungh=inputString.length;
+i=0;
+while(i<=lungh){
+outputString=outputString+inputString.charAt(lungh-i);
+i++;
+}
+alert(outputString);
+}
+</script> 
+</head>
+<!--versione professore
+for(let index=inputString.length-1; index=>0; index--){
+ outputString=outputString+inputString.charAt(index); può anche essere outputstring=+inputString.charAt(index);
+-->
