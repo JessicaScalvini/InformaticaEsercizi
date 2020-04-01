@@ -2,10 +2,16 @@
 <html>
   <head>
     <script>
-      function is 
-      
-      
-      
+      function isPositiveNumber(inputString){
+        if(isNaN(inputString)){
+          return false;
+        }
+        let num = Number(inputString);
+        return num > 0;
+      }
+      let someInput = prompt("inserisci un numero");
+      console.log(isPositiveNumber(someInput));
+    </script>
     </script>
   </head>
 </html>

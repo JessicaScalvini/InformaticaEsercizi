@@ -6,16 +6,18 @@
         "version": "0.1.0",
         "configurations": [
             {
-                "type": "browser-preview",
-                "request": "attach",
-                "name": "Browser Preview: Attach"
+                "name": "Launch index.html",
+                "type": "chrome",
+                "request": "launch",
+                "file": "${workspaceFolder}/"
             },
             {
-                "type": "browser-preview",
+                "name": "Launch localhost",
+                "type": "chrome",
                 "request": "launch",
-                "name": "Browser Preview: Launch",
-                "url": "http://127.0.0.1:5500/"
-            }
+                "url": "http://localhost/mypage.html",
+                "webRoot": "${workspaceFolder}/wwwroot"
+            },
+            
         ]
     }
-}

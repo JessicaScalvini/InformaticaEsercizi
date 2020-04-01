@@ -1,0 +1,22 @@
+<!-- Prendere in input un numero naturale n e calcolare la somma dei quadrati di tutti i naturali minori o uguali a n. Mostrare il risultato all’utente. Gestire il caso in cui l’input non è un numero naturale. 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      let inputString = prompt("Provide input number");
+      let num = parseInt(inputString);
+      // not a number, non positive, o fractional
+      if (isNaN(num) || num <= 0 || num.toFixed(0) != inputString) {
+        alert("Invalid input");
+      } else {
+        let res = 0;
+        for (let i = 1; i <= num; i++) {
+          res += i * i;
+        }
+        alert(res);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

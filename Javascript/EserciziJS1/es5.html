@@ -1,0 +1,34 @@
+<!-- Prendere in input una stringa con lettere e cifre. Calcolare quanti numeri appaiono nella stringa. Scrivere ogni numero su console.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      let inputStr = prompt("Provide input string");
+
+      let numStr = "",
+        numCount = 0;
+      for (let i = 0; i < inputStr.length; i++) {
+        let ch = inputStr.charAt(i);
+        // if within number, concatenate string
+        if (ch >= "0" && ch <= "9") {
+          numStr += ch;
+        } else {
+          // not within number, check if we just "finished" number substring
+          if (numStr.length > 0) {
+            console.log(numStr);
+            numCount++;
+            numStr = "";
+          }
+        }
+      }
+      // special case: number substring was at the end
+      if (numStr.length > 0) {
+        console.log(numStr);
+        numCount++;
+      }
+      alert(numCount);
+    </script>
+  </head>
+  <body></body>
+</html>

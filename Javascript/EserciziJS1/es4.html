@@ -1,0 +1,26 @@
+<!--Avendo una stringa con il codice HTML, scrivere un programma che elimina tutti i tag e ritorna il testo rimanente (senza simbolo di nuova linea ‘\n’) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      let inputStr = prompt("Inserisci stringa html");
+
+      let tagOpened = false, res = "";
+      for (let i = 0; i < inputStr.length; i++) {
+        let ch = inputStr.charAt(i);
+        // tag is closing
+        if (ch == ">" && tagOpened) {
+          tagOpened = false;
+          // tag is opening
+        } else if (ch == "<" && !tagOpened) {
+          tagOpened = true;
+        // if not within tag, add to the result ignoring the new line symbol 
+        } else if (!tagOpened && ch != "\n") {
+          res += ch;
+        }
+      }
+      alert("text is: " + res);
+    </script>
+  </head>
+  <body></body>
+</html>
