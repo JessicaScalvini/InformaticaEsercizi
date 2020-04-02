@@ -1,0 +1,25 @@
+<!--Definire una funzione joinWords(array) che restituisce una stringa di concatenazione degli elementi (con join e senza join)-->
+
+<html>
+    <head>
+        <script>
+            function joinWords(array){
+                return array.join(', ');
+            }
+
+            function joinWordsNoJoin(array){
+                let str='';
+                for(let i=0;i<array.length;i++){
+                    if(str!=""){
+                        str+=", ";
+                    }
+                    str+=array[i];
+                }
+                return str;
+            }
+            let numbers=[1,2,3,4,5];
+            console.log(joinWords(numbers));
+            console.log(joinWordsNoJoin(numbers));
+        </script>
+    </head>
+</html>

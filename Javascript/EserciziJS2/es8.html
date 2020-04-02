@@ -1,0 +1,16 @@
+<!--Definire una funzione firstElements(array,n) che restituisce primi elementi di un array --> 
+<html>
+    <head>
+         <script>
+             function firstElements(array,n){
+                 if(!n){
+                    return array.slice(0,1);
+                 }
+                 return array.slice (0,n);
+             }
+             let array=[1,2,3,4,5];
+             let elements=firstElements(array,2);
+             console.log(elements);
+         </script>
+    </head>
+</html>

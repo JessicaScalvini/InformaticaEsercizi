@@ -1,1 +1,20 @@
 <!-- Definire una funzione countLetter che prende in input una stringa e una lettera e restituisce il numero di occorrenze della lettera nella stringa -->
+<html>
+    <head>
+        <script>
+            function countLetter(str, ch){
+                let count=0;
+                for (let i=0; i<str.length; i++){
+                    if (str.charAt(i)==ch){
+                        count++; 
+                    }
+                }
+                return count;
+            }
+            let strInput=prompt('inserisci una stringa da analizzare');
+            let chInput=prompt('inserisci una lettera da contare');
+
+            alert (countLetter(strInput, chInput));
+        </script>
+    </head>
+</html>
