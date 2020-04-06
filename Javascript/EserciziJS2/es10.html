@@ -2,7 +2,33 @@
 <html>
     <head>
         <script>
-            
+            function checkDuplicates(array){
+                for(let i=0;i<array.length; i++){
+                    let e1=array[i];
+                    for(let j=i+1;j<array.length;j++){
+                        let e2=array[j];
+                        if(e1==e2){
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            function checkDuplicatesWithSort(array){
+                let copy=array; //.slice(0)
+                copy.sort();
+                for(let i=1;i<copy.length;i++){
+                    if(copy[i]==copy[i-1]){
+                        return true;
+                    }
+                }
+                return false;
+            }
+            let numbers=[1,2,3,4,5];
+            console.log(checkDuplicates(numbers));
+            console.log(checkDuplicatesWithSort(numbers));
+            console.log(numbers); 
         </script>
     </head>
 </html>
