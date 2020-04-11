@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+	/*****************************************
+	 * ESERCIZIO 13
+	 * Definire una funzione sortAbsolute(array) che, 
+	 * dando un array dei numeri, li ordina secondo il valore ASSOLUTO crescente.
+	 *****************************************/
+    
+      function sortAbsolute(array) {
+       // confronto due numeri: considerando se positivo o negativo
+       let compareAbs = function(a, b) {
+         return (a < 0 ? -a : a) - (b < 0 ? -b : b);
+       };
+       array.sort(compareAbs);
+     }
+ 
+     let testArray = [-1, -3, 2, 4];
+     sortAbsolute(testArray);
+     console.log(testArray);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+	/*****************************************
+	 * ESERCIZIO 14
+	 * Definire struttura dati che rappresentano i record database 
+	 * di una banca (le transazioni): nome utente, data 
+	 * (es., come stringa, o un numero per semplicità), addebito/accredito (in Euro). 
+	 * 
+	 * Creare un array di questi record bancari che contiene i record con diversi 
+	 * utenti, diverse date, e diverse somme. Devono esserci più’ record per 
+	 * la stessa data e anche per lo stesso utente.
+	 * 
+	 * Creare una funzione bankUserReport(array) che produce un report: 
+	 * array con oggetti che contengono nome utente e 
+	 * la somma corrispondente - addebito totale di una persona. 
+	 * 
+	 * Creare una funze bankDailyReport(array) che produce un report: 
+	 * array con oggetti che contengono data e 
+	 * la somma corrispondente - addebito totale in un giorno. 
+	 *****************************************/
+    
+          let records = [
+        { user: "user1", date: "2020-04-01", amount: 100 },
+        { user: "user1", date: "2020-04-02", amount: -50 },
+        { user: "user2", date: "2020-04-02", amount: 200 },
+        { user: "user1", date: "2020-04-03", amount: 10 },
+        { user: "user3", date: "2020-04-04", amount: 300 },
+        { user: "user1", date: "2020-04-04", amount: 400 },
+        { user: "user2", date: "2020-04-04", amount: -1000 },
+        { user: "user1", date: "2020-04-05", amount: 100 },
+        { user: "user3", date: "2020-04-06", amount: -100 },
+        { user: "user2", date: "2020-04-08", amount: -600 },
+        { user: "user3", date: "2020-04-08", amount: 10 },
+        { user: "user1", date: "2020-04-08", amount: 10 },
+        { user: "user3", date: "2020-04-08", amount: -20 },
+        { user: "user3", date: "2020-04-09", amount: 500 },
+        { user: "user3", date: "2020-04-09", amount: 1 }
+      ];
+
+	  // prudce array che raggruppa le somme per utente
+      function bankUserReport(array) {
+        // chiave - valore: associa la somma all'utente 
+        let somme = {};
+        for (let i = 0; i < array.length; i++) {
+          let rec = array[i];
+          // se utente non e' ancora presente, mettiamo valore del record corrente
+          if (!somme[rec.user]) {
+            somme[rec.user] = rec.amount;
+          // altrimenti aggiungiamo il valore del record corrente  
+          } else {
+            somme[rec.user] += rec.amount;
+          }
+        }
+        // tutti utenti trovati
+        let users = Object.keys(somme);
+        let result = [];
+        // per ogni utente aggiungi elemento all'array finale
+        for (let i = 0; i < users.length; i++) {
+          let user = users[i];
+          result.push({ user: user, amount: somme[user] });
+        }
+        return result;
+      }
+
+	  // prudce array che raggruppa le somme per data
+      function bankDailyReport(array) {
+      	// usiamo metodo 'reduce' di array:
+      	// partendo di un valore di base applica una funzione
+      	// al valore corrente e il valore precedente
+      	// e restituisce il nuovo valore.
+      	// Nel nostro caso valore di base e' una mappa
+      	// chiave-valore vuota che viene popolato da ogni record
+        let somme = array.reduce(function(prev, curr) {
+          prev[curr.date] = (prev[curr.date] || 0) + curr.amount;
+          return prev;
+        }, {});
+        
+        // usiamo metodo 'map' di array:
+        // trasforma ogni elemento di array a qualcos'altro.
+        // Nel nostro caso, trasformiamo la chiave (data) in un
+        // oggetto che contiene data e la somma corrispondente
+        return Object.keys(somme).map(function(data) {
+          return { date: data, amount: somme[data] };
+        });
+      }
+
+      console.log(bankUserReport(records));
+      console.log(bankDailyReport(records));
+    </script>
+  </head>
+  <body></body>
+</html>

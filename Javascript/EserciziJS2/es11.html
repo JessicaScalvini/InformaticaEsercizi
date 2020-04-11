@@ -9,7 +9,49 @@ Ordinare l'array seguendo l'ordine alfabetico del cognome
  <html>
      <head>
          <script>
-             
+               let persone =[
+                   {
+                       nome:'Mario', //definizione array
+                       cognome:'Rossi',
+                       dob:'2000-01-05',
+                       birthPlace: 'Trento'
+                   },
+                   {
+                       nome:'Luisa',
+                       cognome:'Rossi',
+                       dob:'2002-05-20',
+                       birthPlace: 'Rovereto'
+                   },
+                   {
+                       nome:'Alessio',
+                       cognome:'bianchi',
+                       dob:'1982-11-11',
+                       birthPlace: 'Verona'
+                   }
+               ];
+                console.log(persone[1].dob); //varie cose con array
+                console.log(persone[2]);
+
+                //ordinare array 
+                let cognomeSort=function(a, b){
+                    let aLower=a.cognome.toLowerCase();
+                    let bLower=b.cognome.toLowerCase();
+                    if(aLower>bLower) return 1;
+                    else if (aLower<bLower) return -1;
+                    else{
+                        aLower=a.nome.toLowerCase();
+                        bLower=b.nome.toLowerCase();
+                        if(aLower<bLower) return 1;
+                        else if(aLower<bLower) return -1;
+                        else return 0;
+                    }  
+                };
+                persone.sort(cognomeSort);
+
+                for(let i=0; i<persone.length;i++){
+                    console.log(persone[i].nome+" "+persone[i].cognome);
+                }
+
          </script>
      </head>
- </html>
+ </html> 
